@@ -1,40 +1,104 @@
-<h1 align="center">Hi 👋, I'm Harshit Bhardwaj</h1>
+<div align="center">
 
-<h3 align="center">
-AI • Software Engineering • Competitive Programming
-</h3>
+# <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"> Hey, I'm Harshit Bhardwaj
 
-<p align="center">
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&pause=1000&color=00F7FF&center=true&vCenter=true&width=700&lines=AI+Engineer;Software+Developer;Competitive+Programmer;Building+Cool+Things;Always+Learning+Something+New"/>
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=3000&pause=1000&center=true&vCenter=true&width=650&lines=AI+Engineer;Software+Developer;Competitive+Programmer;LeetCode+Solver;GATE+CSE+2027" />
-
-</p>
+</div>
 
 ---
 
-## 👨‍💻 About Me
+<div align="center">
 
-- 🎓 B.Tech CSE Student
+### 🚀 Turning ideas into code, one commit at a time.
 
-- 🤖 Interested in Artificial Intelligence and Software Engineering
-
-- 💻 Solving LeetCode every day
-
-- 🚀 Building AI Projects
-
-- 🌱 Currently learning
-  - Machine Learning
-  - System Design
-  - Backend Development
+</div>
 
 ---
 
-## 🛠 Tech Stack
+<table>
+<tr>
 
-<p align="center">
+<td width="58%" valign="top">
 
-<img src="https://skillicons.dev/icons?i=cpp,python,java,git,docker,tensorflow,pytorch,fastapi,mysql,linux,vscode"/>
+# 👨‍💻 About Me
 
-</p>
+```cpp
+class Harshit
+{
+public:
+
+    string role = "AI & Software Developer";
+
+    vector<string> languages =
+    {
+        "C++",
+        "Python",
+        "Java",
+        "SQL"
+    };
+
+    vector<string> interests =
+    {
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Backend Development",
+        "System Design"
+    };
+
+    string currently =
+        "Building AI Projects";
+
+    string funFact =
+        "I debug more than I sleep 😄";
+};
+```
+
+### 🌱 Currently
+
+- 🔥 Solving LeetCode
+- 🤖 Building AI Projects
+- ⚡ Learning System Design
+- 📖 Exploring LLMs
+- 💻 Open Source
+
+</td>
+
+<td width="42%">
+
+<img src="https://github-readme-stats.vercel.app/api?username=HarshitB6&show_icons=true&theme=tokyonight&hide_border=true"/>
+
+</td>
+
+</tr>
+</table>
 
 ---
+
+# ⚡ Tech Arsenal
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=cpp,python,java,mysql,git,github,docker,linux,vscode,tensorflow,pytorch,fastapi"/>
+
+</div>
+
+---
+
+# 🔥 GitHub Streak
+
+<div align="center">
+
+<img src="https://streak-stats.demolab.com?user=HarshitB6&theme=tokyonight&hide_border=true"/>
+
+</div>
+
+---
+
+# 📈 Most Used Languages
+
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=HarshitB6&layout=compact&theme=tokyonight&hide_border=true"/>
+
+</div>
