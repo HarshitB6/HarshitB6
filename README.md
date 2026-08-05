@@ -208,3 +208,12 @@ View Project →
 *"First, solve the problem. Then, write the code."*
 
 </div>
+---
+
+# 🐍 Contribution Snake
+
+<p align="center">
+
+<img src="https://raw.githubusercontent.com/HarshitB6/HarshitB6/output/github-contribution-grid-snake.svg"/>
+
+</p>
