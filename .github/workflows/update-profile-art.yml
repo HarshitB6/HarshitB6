@@ -1,0 +1,43 @@
+name: Update profile art
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 2 * * *"
+
+permissions: {}
+
+jobs:
+  rebuild-artifacts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements.txt
+
+      - name: Fetch contributions
+        run: python scripts/fetch_contributions.py
+
+      - name: Render contribution heatmap
+        run: python scripts/render_heatmap_svg.py
+
+      - name: Render info card
+        run: python scripts/make_info_card.py
+
+      - name: Commit generated artifacts
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: refresh profile art"
+          file_pattern: contrib-heatmap.svg info-card.svg data/contributions.json
+          skip_fetch: true

@@ -1,106 +1,166 @@
-#!/usr/bin/env python3
 
-"""
-Fetch GitHub contribution calendar.
+"""Fetch public GitHub contribution data without the GitHub API."""
 
-Author: HarshitB6 Profile
-
-Outputs:
-    data/contributions.json
-"""
+from __future__ import annotations
 
 import json
-import os
 import re
-import requests
+from dataclasses import asdict, dataclass
+from datetime import UTC, date, datetime
+from pathlib import Path
+from typing import Any
 
+import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
+from bs4.element import Tag
+
 
 USERNAME = "HarshitB6"
-
-URL = f"https://github.com/users/{USERNAME}/contributions"
-
-OUTPUT = "data/contributions.json"
-
-
-def contribution_level(color):
-    """
-    Convert GitHub color into level.
-    """
-
-    colors = {
-        "#ebedf0": 0,
-        "#9be9a8": 1,
-        "#40c463": 2,
-        "#30a14e": 3,
-        "#216e39": 4,
-    }
-
-    return colors.get(color.lower(), 0)
-
-
-def fetch():
-
-    print("Fetching contribution graph...")
-
-    r = requests.get(
-        URL,
-        headers={
-            "User-Agent": "Mozilla/5.0"
-        }
+CONTRIBUTIONS_URL = f"https://github.com/users/{USERNAME}/contributions"
+ROOT_DIR = Path(__file__).resolve().parent.parent
+OUTPUT_PATH = ROOT_DIR / "data" / "contributions.json"
+REQUEST_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/127.0.0.0 Safari/537.36"
     )
+}
+TOOLTIP_COUNT_PATTERN = re.compile(r"(?P<count>\d+)\s+contribution")
 
-    r.raise_for_status()
 
-    soup = BeautifulSoup(r.text, "html.parser")
+@dataclass(frozen=True)
+class ContributionDay:
+    date: str
+    count: int
+    level: int
 
-    rects = soup.find_all("rect")
 
-    contributions = []
+@dataclass(frozen=True)
+class ContributionSnapshot:
+    username: str
+    source: str
+    generated_at: str
+    total_contributions: int
+    start_date: str
+    end_date: str
+    days: list[ContributionDay]
 
-    total = 0
+    def to_json(self) -> dict[str, Any]:
+        return asdict(self)
 
-    for rect in rects:
 
-        if rect.has_attr("data-date"):
+class ContributionFetcher:
+    def __init__(self, username: str, source_url: str) -> None:
+        self.username = username
+        self.source_url = source_url
 
-            date = rect["data-date"]
-
-            count = int(rect.get("data-count", 0))
-
-            level = int(rect.get("data-level", 0))
-
-            total += count
-
-            contributions.append(
-                {
-                    "date": date,
-                    "count": count,
-                    "level": level
-                }
+    def fetch(self) -> ContributionSnapshot:
+        response = self._build_session().get(
+            self.source_url,
+            headers=REQUEST_HEADERS,
+            timeout=30,
+        )
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, "html.parser")
+        days = self._parse_days(soup)
+        if not days:
+            raise RuntimeError(
+                "No contribution cells were found in the GitHub contributions page."
             )
 
-    print(f"Days found: {len(contributions)}")
-    print(f"Total contributions: {total}")
-
-    os.makedirs("data", exist_ok=True)
-
-    with open(OUTPUT, "w") as f:
-
-        json.dump(
-            {
-                "username": USERNAME,
-                "generated": datetime.utcnow().isoformat(),
-                "total": total,
-                "days": contributions
-            },
-            f,
-            indent=4
+        total_contributions = sum(day.count for day in days)
+        return ContributionSnapshot(
+            username=self.username,
+            source=self.source_url,
+            generated_at=datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+            total_contributions=total_contributions,
+            start_date=days[0].date,
+            end_date=days[-1].date,
+            days=days,
         )
 
-    print("Saved ->", OUTPUT)
+    def _parse_days(self, soup: BeautifulSoup) -> list[ContributionDay]:
+        cells = soup.select("table.ContributionCalendar-grid td.ContributionCalendar-day")
+        if not cells:
+            cells = soup.select("rect.ContributionCalendar-day")
+
+        tooltip_by_target = {
+            tooltip.get("for"): tooltip.get_text(" ", strip=True)
+            for tooltip in soup.select("tool-tip[for]")
+            if tooltip.get("for")
+        }
+
+        parsed_days: list[ContributionDay] = []
+        for cell in cells:
+            day_value = cell.get("data-date")
+            count_value = cell.get("data-level")
+            if not day_value or count_value is None:
+                continue
+
+            try:
+                raw_count = self._extract_count(cell, tooltip_by_target)
+                parsed_days.append(
+                    ContributionDay(
+                        date=day_value,
+                        count=int(raw_count),
+                        level=int(count_value),
+                    )
+                )
+            except ValueError as error:
+                raise RuntimeError(
+                    f"GitHub contribution payload contained an unexpected value: {error}"
+                ) from error
+
+        parsed_days.sort(key=lambda day: day.date)
+        return parsed_days
+
+    def _extract_count(
+        self,
+        cell: Tag,
+        tooltip_by_target: dict[str, str],
+    ) -> int:
+        raw_count = cell.get("data-count")
+        if raw_count is not None:
+            return int(raw_count)
+
+        tooltip_text = tooltip_by_target.get(cell.get("id", ""), "")
+        if tooltip_text.startswith("No contributions"):
+            return 0
+
+        match = TOOLTIP_COUNT_PATTERN.search(tooltip_text)
+        if match:
+            return int(match.group("count"))
+
+        raise RuntimeError(
+            f"Could not determine contribution count for {cell.get('data-date', 'unknown date')}."
+        )
+
+    def _build_session(self) -> requests.Session:
+        session = requests.Session()
+        session.trust_env = False
+        return session
+
+
+def write_snapshot(snapshot: ContributionSnapshot, output_path: Path) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
+        json.dumps(snapshot.to_json(), indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
+def main() -> None:
+    snapshot = ContributionFetcher(USERNAME, CONTRIBUTIONS_URL).fetch()
+    write_snapshot(snapshot, OUTPUT_PATH)
+    start = date.fromisoformat(snapshot.start_date)
+    end = date.fromisoformat(snapshot.end_date)
+    print(
+        f"Saved {snapshot.total_contributions} contributions for "
+        f"{snapshot.username} from {start.isoformat()} to {end.isoformat()}."
+    )
 
 
 if __name__ == "__main__":
-    fetch()
+    main()
+>>>>>>> a598f22 (Revamp GitHub profile with animated SVGs)

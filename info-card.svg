@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Neofetch-inspired info card for Harshit Bhardwaj</title>
+  <desc id="desc">Terminal-style profile card with education, focus areas, languages, and current project.</desc>
+  <defs>
+    <linearGradient id="panelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1b2f" />
+      <stop offset="100%" stop-color="#08111f" />
+    </linearGradient>
+    <filter id="panelShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#01050a" flood-opacity="0.5" />
+    </filter>
+    <filter id="goalGlow" x="-30%" y="-40%" width="180%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="1.6" flood-color="#b2ffe0" flood-opacity="0.22" />
+    </filter>
+    <style>
+      text {
+        font-family: Consolas, 'SFMono-Regular', 'Liberation Mono', monospace;
+      }
+      .frame {
+        fill: url(#panelGradient);
+        stroke: #1a436b;
+        stroke-width: 1.2;
+      }
+      .line {
+        opacity: 1;
+      }
+      .prompt {
+        fill: #61f2b5;
+        font-size: 18px;
+        letter-spacing: 0.18px;
+      }
+      .meta {
+        fill: #517394;
+        font-size: 14px;
+        letter-spacing: 0.24px;
+      }
+      .label {
+        fill: #8fbbd5;
+        font-size: 17px;
+      }
+      .value {
+        font-size: 17px;
+      }
+      .value-goal {
+        font-weight: 700;
+      }
+      .divider {
+        stroke: #11203a;
+        stroke-width: 1;
+      }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="920" height="420" fill="#08111f" rx="18" ry="18" />
+  <rect class="frame" x="12" y="12" width="896" height="396" rx="20" ry="20" filter="url(#panelShadow)" />
+  <circle cx="42" cy="42" r="6" fill="#ff5f56" />
+  <circle cx="62" cy="42" r="6" fill="#ffbd2e" />
+  <circle cx="82" cy="42" r="6" fill="#27c93f" />
+  <text class="prompt" x="118" y="48">harshit@github:~$ whoami</text>
+  <text class="meta" x="118" y="72">terminal profile snapshot</text>
+  <line class="divider" x1="32" y1="92" x2="888" y2="92" />
+  <g class="line" transform="translate(0 0)"><text class="label" x="52" y="126">Name</text><text class="label" x="232" y="126">:</text><text class="value" x="256" y="126" fill="#7ee7ff">Harshit Bhardwaj</text><set attributeName="opacity" to="0" begin="0s" dur="0ms" fill="freeze" /><animate attributeName="opacity" from="0" to="1" begin="0ms" dur="540ms" fill="freeze" /><animateTransform attributeName="transform" type="translate" from="-10 0" to="0 0" begin="0ms" dur="540ms" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1" keyTimes="0;1" /></g>
+<g class="line" transform="translate(0 0)"><text class="label" x="52" y="154">GitHub</text><text class="label" x="232" y="154">:</text><text class="value" x="256" y="154" fill="#d7f3ff">@HarshitB6</text><set attributeName="opacity" to="0" begin="0s" dur="140ms" fill="freeze" /><animate attributeName="opacity" from="0" to="1" begin="140ms" dur="540ms" fill="freeze" /><animateTransform attributeName="transform" type="translate" from="-10 0" to="0 0" begin="140ms" dur="540ms" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1" keyTimes="0;1" /></g>
+<g class="line" transform="translate(0 0)"><text class="label" x="52" y="182">Role</text><text class="label" x="232" y="182">:</text><text class="value" x="256" y="182" fill="#d7f3ff">Computer Science Student</text><set attributeName="opacity" to="0" begin="0s" dur="280ms" fill="freeze" /><animate attributeName="opacity" from="0" to="1" begin="280ms" dur="540ms" fill="freeze" /><animateTransform attributeName="transform" type="translate" from="-10 0" to="0 0" begin="280ms" dur="540ms" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1" keyTimes="0;1" /></g>
+<g class="line" transform="translate(0 0)"><text class="label" x="52" y="210">College</text><text class="label" x="232" y="210">:</text><text class="value" x="256" y="210" fill="#d7f3ff">Bharati Vidyapeeth College of Engineering</text><set attributeName="opacity" to="0" begin="0s" dur="420ms" fill="freeze" /><animate attributeName="opacity" from="0" to="1" begin="420ms" dur="540ms" fill="freeze" /><animateTransform attributeName="transform" type="translate" from="-10 0" to="0 0" begin="420ms" dur="540ms" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1" keyTimes="0;1" /></g>
+<g class="line" transform="translate(0 0)"><text class="label" x="52" y="238">Graduation</text><text class="label" x="232" y="238">:</text><text class="value" x="256" y="238" fill="#d7f3ff">2028</text><set attributeName="opacity" to="0" begin="0s" dur="560ms" fill="freeze" /><animate attributeName="opacity" from="0" to="1" begin="560ms" dur="540ms" fill="freeze" /><animateTransform attributeName="transform" type="translate" from="-10 0" to="0 0" begin="560ms" dur="540ms" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1" keyTimes="0;1" /></g>
+<g class="line" transform="translate(0 0)"><text class="label" x="52" y="266">Languages</text><text class="label" x="232" y="266">:</text><text class="value" x="256" y="266" fill="#d7f3ff">Python, C++, Java, SQL</text><set attributeName="opacity" to="0" begin="0s" dur="700ms" fill="freeze" /><animate attributeName="opacity" from="0" to="1" begin="700ms" dur="540ms" fill="freeze" /><animateTransform attributeName="transform" type="translate" from="-10 0" to="0 0" begin="700ms" dur="540ms" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1" keyTimes="0;1" /></g>
+<g class="line" transform="translate(0 0)"><text class="label" x="52" y="294">Current Focus</text><text class="label" x="232" y="294">:</text><text class="value" x="256" y="294" fill="#d7f3ff">Artificial Intelligence, Machine Learning, Backend, DSA</text><set attributeName="opacity" to="0" begin="0s" dur="840ms" fill="freeze" /><animate attributeName="opacity" from="0" to="1" begin="840ms" dur="540ms" fill="freeze" /><animateTransform attributeName="transform" type="translate" from="-10 0" to="0 0" begin="840ms" dur="540ms" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1" keyTimes="0;1" /></g>
+<g class="line" transform="translate(0 0)"><text class="label" x="52" y="322">Current Project</text><text class="label" x="232" y="322">:</text><text class="value" x="256" y="322" fill="#d7f3ff">DocuMind</text><set attributeName="opacity" to="0" begin="0s" dur="980ms" fill="freeze" /><animate attributeName="opacity" from="0" to="1" begin="980ms" dur="540ms" fill="freeze" /><animateTransform attributeName="transform" type="translate" from="-10 0" to="0 0" begin="980ms" dur="540ms" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1" keyTimes="0;1" /></g>
+<g class="line" transform="translate(0 0)"><text class="label" x="52" y="350">Goal</text><text class="label" x="232" y="350">:</text><text class="value value-goal" x="256" y="350" fill="#61f2b5" filter="url(#goalGlow)">Software Engineering Internship</text><set attributeName="opacity" to="0" begin="0s" dur="1120ms" fill="freeze" /><animate attributeName="opacity" from="0" to="1" begin="1120ms" dur="540ms" fill="freeze" /><animateTransform attributeName="transform" type="translate" from="-10 0" to="0 0" begin="1120ms" dur="540ms" fill="freeze" calcMode="spline" keySplines="0.16 1 0.3 1" keyTimes="0;1" /></g>
+</svg>
