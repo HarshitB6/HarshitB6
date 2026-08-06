@@ -74,13 +74,7 @@ harshit@github ~$ cat goals.txt
 harshit@github ~$ git stats
 ```
 
-<div align="center">
-  <img width="100%" src="https://github-readme-stats.vercel.app/api?username=HarshitB6&show_icons=true&theme=transparent&title_color=7EE7FF&text_color=D7F3FF&icon_color=19A7D8&border_color=1A436B&bg_color=00000000&hide_rank=false" alt="GitHub stats" />
-</div>
 
-<div align="center">
-  <img width="100%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=HarshitB6&layout=compact&theme=transparent&title_color=7EE7FF&text_color=D7F3FF&border_color=1A436B&bg_color=00000000" alt="Top languages" />
-</div>
 
 <div align="center">
   <img width="100%" src="https://streak-stats.demolab.com?user=HarshitB6&theme=transparent&ring=7EE7FF&fire=19A7D8&currStreakLabel=D7F3FF&sideLabels=89AECA&dates=5B7C98&border=1A436B&background=00000000" alt="GitHub streak" />
