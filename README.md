@@ -220,7 +220,7 @@ print(me)
 
 <tr>
 
-<td width="50%">
+<td width="50%" valign="top">
 
 ### 📄 DocuMind
 
@@ -228,26 +228,26 @@ AI-powered document understanding platform that helps users interact with docume
 
 **Tech Stack**
 
-Python • FastAPI • AI
+`Python` • `FastAPI` • `AI`
 
 <a href="https://github.com/HarshitB6/DocuMind">
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=HarshitB6&repo=DocuMind&theme=tokyonight"/>
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=HarshitB6&repo=DocuMind&theme=tokyonight&hide_border=true"/>
 </a>
 
 </td>
 
-<td width="50%">
+<td width="50%" valign="top">
 
 ### 🤖 AI Chatbot
 
-Conversational AI chatbot focused on natural interaction and modern LLM workflows.
+Conversational AI chatbot built using modern AI technologies.
 
 **Tech Stack**
 
-Python • AI
+`Python` • `LLMs`
 
 <a href="https://github.com/HarshitB6/ai-chatbot">
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=HarshitB6&repo=ai-chatbot&theme=tokyonight"/>
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=HarshitB6&repo=ai-chatbot&theme=tokyonight&hide_border=true"/>
 </a>
 
 </td>
@@ -256,18 +256,18 @@ Python • AI
 
 <tr>
 
-<td colspan="2">
+<td colspan="2" align="center">
 
 ### 🛡 AI Hallucination Checker
 
-Tool for identifying hallucinations in AI-generated responses.
+Detects hallucinations in AI-generated responses.
 
 **Tech Stack**
 
-Python • Machine Learning
+`Python` • `Machine Learning`
 
 <a href="https://github.com/HarshitB6/ai-hallucination-checker">
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=HarshitB6&repo=ai-hallucination-checker&theme=tokyonight"/>
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=HarshitB6&repo=ai-hallucination-checker&theme=tokyonight&hide_border=true"/>
 </a>
 
 </td>
@@ -290,7 +290,7 @@ Python • Machine Learning
 
 </div>
 
----
+<br>
 
 <div align="center">
 
@@ -298,7 +298,7 @@ Python • Machine Learning
 
 </div>
 
----
+<br>
 
 <div align="center">
 
@@ -308,73 +308,58 @@ Python • Machine Learning
 
 ---
 
-# 🏆 GitHub Achievements
-
-<div align="center">
-
-<img src="https://github-profile-trophy.vercel.app/?username=HarshitB6&theme=tokyonight&row=1&column=6&margin-w=15&margin-h=15"/>
-
-</div>
-
----
-
-# 📈 Development Journey
+# 💻 Development Journey
 
 ```text
 2025
 │
-├── Started focusing on AI & Machine Learning
-│
+├── Started learning AI & Machine Learning
 ├── Began solving LeetCode consistently
-│
 ├── Built AI Chatbot
-│
 ├── Built DocuMind
-│
 └── Built AI Hallucination Checker
 
 2026
 │
-├── Master DSA
-│
+├── Master Data Structures & Algorithms
 ├── Contribute to Open Source
-│
-├── Build More AI Projects
-│
+├── Build Production-Level AI Applications
 └── Land a Software Engineering Internship
 ```
 
 ---
 
-# 📌 Current Focus
+# 🎯 Current Focus
 
 ```yaml
-Artificial Intelligence: ██████████
+Artificial Intelligence : ██████████
 
-Machine Learning: █████████░
+Machine Learning        : █████████░
 
-Backend Development: ████████░░
+Backend Development     : ████████░░
 
-Data Structures: █████████░
+Data Structures         : █████████░
 
-Problem Solving: █████████░
+Problem Solving         : █████████░
 
-System Design: ███░░░░░░░░
+System Design           : ███░░░░░░░
 ```
 
 ---
 
-# ⚡ GitHub Contribution
+# 🧠 Currently Working On
 
-<div align="center">
+```text
+🟢 Solving LeetCode Daily
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=HarshitB6&theme=tokyo-night"/>
+🟢 Learning Machine Learning
 
-</div>
+🟢 Building AI Projects
 
----
+🟢 Improving Backend Development Skills
 
-<img src="./assets/divider.svg" width="100%">
+🟢 Preparing for Software Engineering Internships
+```
 
 ---
 
